@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-primary: #0A0A0A;
+  --color-bg-alt: #1a1a1a;
+  --color-surface: #222222;
+  --color-void: #ebecc6;
+  --color-mid: #a0a080;
+  --color-signal: #b81e21;
+
+  --font-serif: var(--font-space-mono), monospace;
+  --font-sans: var(--font-space-grotesk), sans-serif;
+
+  --animate-scroll-indicator: scrollIndicator 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  --animate-grain: grainShift 0.12s steps(1) infinite;
+  --animate-glow: glowPulse 4s ease-in-out infinite alternate;
+
+  @keyframes scrollIndicator {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @keyframes grainShift {
+    0%  { transform: translate(0, 0); }
+    10% { transform: translate(-3%, -4%); }
+    20% { transform: translate(5%, 2%); }
+    30% { transform: translate(-2%, 6%); }
+    40% { transform: translate(4%, -3%); }
+    50% { transform: translate(-5%, 1%); }
+    60% { transform: translate(2%, 5%); }
+    70% { transform: translate(-4%, -2%); }
+    80% { transform: translate(3%, -5%); }
+    90% { transform: translate(-1%, 3%); }
+    100% { transform: translate(0, 0); }
+  }
+
+  @keyframes glowPulse {
+    from { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+    to   { opacity: 1;   transform: translate(-50%, -50%) scale(1.05); }
+  }
+}
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #ebecc6;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #b81e21;
+  color: #fff;
+}
